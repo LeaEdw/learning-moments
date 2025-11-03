@@ -1,0 +1,13 @@
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    background-color: var(--secondary);
+    padding: 1rem;
+    width: 100%;
+}
+
+.navbar > *{
+    background-color: var(--offWhite);
+    padding: 0.5rem;
+    border-radius: 10px
+}

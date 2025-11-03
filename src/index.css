@@ -1,5 +1,18 @@
 /*Reset Default Styling
 --------------------------------------------------------------*/
+:root {
+  --primary:#F4D35E;
+  --secondary: #28AFB0;
+  --info: #EE96AB;
+  --warning: #F6511D;
+  --white: #FFFFFF;
+  --offWhite: #f2f2f3;
+  --dark: #1F271B;
+  --appBackground: #e7e7e7;
+
+
+}
+
 html,
 body,
 div,
@@ -104,6 +117,7 @@ section {
 }
 body {
   line-height: 1;
+  background-color: var(--appBackground);
 }
 ol,
 ul {
