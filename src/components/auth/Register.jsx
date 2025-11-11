@@ -54,16 +54,16 @@ export const Register = ( ) => {
   return (
     <main className="container-login">
       <form className="form-login" onSubmit={handleRegister}>
-        <h1 className="header">Learning Moments</h1>
+        <h1 className="header">Big Social App</h1>
         <h2>Please Register</h2>
         <fieldset className="form-group">
           <div>
             <input
               onChange={updateUser}
               type="text"
-              id="fullName"
-              className="form-login-input"
-              placeholder="Enter your name"
+              id="username"
+              className="form-control"
+              placeholder="Enter your username"
               required
               autoFocus
             />
@@ -75,7 +75,7 @@ export const Register = ( ) => {
               onChange={updateUser}
               type="email"
               id="email"
-              className="form-login-input"
+              className="form-control"
               placeholder="Email address"
               required
             />
@@ -87,7 +87,7 @@ export const Register = ( ) => {
               onChange={updateUser}
               type="number"
               id="cohort"
-              className="form-login-input"
+              className="form-control"
               placeholder="Cohort #"
               required
             />
@@ -95,7 +95,7 @@ export const Register = ( ) => {
         </fieldset>
         <fieldset className="form-group">
           <div>
-            <button type="submit">Register</button>
+            <button type="submit" className="btn-secondary">Register</button>
           </div>
         </fieldset>
       </form>
