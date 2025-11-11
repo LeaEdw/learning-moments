@@ -1,6 +1,8 @@
+import { useState, useEffect } from "react";
 import { Route, Routes, Outlet } from "react-router-dom";
 import { NavigationBar } from "../components/NavBar/NavigationBar";
 import { Navbar } from "react-bootstrap";
+import { Post } from "../components/Posts/Posts";
 
 export const ApplicationViews = () => {
     const [currentUser, setCurrentUser] = useState({})
@@ -25,11 +27,14 @@ export const ApplicationViews = () => {
                         </>
                     }
                 >
-                    <Route></Route>
-                    <Route></Route>
-                    <Route></Route>
-                    <Route></Route>
-                    <Route></Route>
+                    <Route index element={<Post />}/>
+                    {/* <Route path="/myPosts" />
+                    <Route path="/newPost" />
+                    <Route path="/favorites" />
+                    <Route path="/settings">
+                        <Route index element={<Profile />} />
+                        <Route path="/statistics" /> */}
+                    {/* </Route> */}
                 </Route>
             </Routes>
         </>
