@@ -39,3 +39,5 @@ export const Post = ({post}) => {
         </div>
     )
 }
+
+// Find out why post is undefined in the next session ...

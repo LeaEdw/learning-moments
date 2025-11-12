@@ -1,4 +1,7 @@
 // Imports
-// Import the posts
 import "./HomePage.css"
+
+export const Home = () => {
+    return
+}
 
