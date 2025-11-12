@@ -7,16 +7,16 @@ export const NavigationBar = () => {
   return (
     <ul className="navbar">
       <li className="nav-item">
-        <Link className="navbar-link">Home</Link>
+        <Link to="/" className="navbar-link">Home</Link>
       </li>
       <li className="nav-item">
-        <Link className="navbar-link">My Posts</Link>
+        <Link to="/my-posts"className="navbar-link">My Posts</Link>
       </li>
       <li className="nav-item">
-        <Link className="navbar-link">+</Link>
+        <Link to="new-post" className="navbar-link">+</Link>
       </li>
       <li className="nav-item">
-        <Link className="navbar-link">Favorites</Link>
+        <Link to="favorites" className="navbar-link">Favorites</Link>
       </li>
       <li className="nav-item">
         <SettingsDropdown />

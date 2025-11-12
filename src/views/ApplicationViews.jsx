@@ -1,42 +1,43 @@
 import { useState, useEffect } from "react";
 import { Route, Routes, Outlet } from "react-router-dom";
 import { NavigationBar } from "../components/NavBar/NavigationBar";
-import { Navbar } from "react-bootstrap";
-import { Post } from "../components/Posts/Posts";
+import { AllPosts } from "../components/AllPosts/AllPosts";
+import { MyPosts } from "../components/AllPosts/MyPosts";
+import { NewPost } from "../components/New Post/NewPost";
+import { Favorites } from "../components/Faves/Faves";
+import { Settings } from "../components/Profile/Settings";
+import { MyProfile } from "../components/Profile/Profiles";
 
 export const ApplicationViews = () => {
-    const [currentUser, setCurrentUser] = useState({})
+  const [currentUser, setCurrentUser] = useState({});
 
-    useEffect (() => {
-        const localLearningUser = localStorage.getItem("learning_user")
-        const learningUserObject = JSON.parse(localLearningUser)
+  useEffect(() => {
+    const localLearningUser = localStorage.getItem("learning_user");
+    const learningUserObject = JSON.parse(localLearningUser);
 
-        setCurrentUser(learningUserObject)
-        
-    }, [])
+    setCurrentUser(learningUserObject);
+  }, []);
 
-    return (
-        <>
-            <Routes>
-                <Route
-                    path="/"
-                    element={
-                        <>
-                        <Navbar/>
-                        <Outlet />
-                        </>
-                    }
-                >
-                    <Route index element={<Post />}/>
-                    {/* <Route path="/myPosts" />
-                    <Route path="/newPost" />
-                    <Route path="/favorites" />
-                    <Route path="/settings">
-                        <Route index element={<Profile />} />
-                        <Route path="/statistics" /> */}
-                    {/* </Route> */}
-                </Route>
-            </Routes>
-        </>
-    )
-}
+  return (
+    <>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <NavigationBar />
+              <Outlet />
+            </>
+          }
+        >
+          <Route index element={<AllPosts />} />
+          <Route path="/my-posts" element={<MyPosts />} />
+          <Route path="/new-post" element={<NewPost />} />
+          <Route path="/favorites" element={<Favorites />} />
+          <Route path="/settings" element={<Settings />} />
+          <Route path="/profile" element={<MyProfile />} />
+        </Route>
+      </Routes>
+    </>
+  );
+};

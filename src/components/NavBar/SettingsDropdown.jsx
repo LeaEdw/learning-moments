@@ -14,8 +14,8 @@ export const SettingsDropdown = () => {
         <Dropdown.Item onClick={() => navigate("/profile")}>
           Profile
         </Dropdown.Item>
-        <Dropdown.Item onClick={() => navigate("/Statistics")}>
-          Statistics
+        <Dropdown.Item onClick={() => navigate("/settings")}>
+          Settings
         </Dropdown.Item>
         <Dropdown.Item 
             onClick={() => {
