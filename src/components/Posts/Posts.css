@@ -1,20 +1,5 @@
-/* .post {
-  background-color: var(--white);
-  border: 1px solid var(--outline);
-  border-radius: 0.5rem;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-}
-
-.post-interactions {
-  display: flex;
-  justify-content: center;
-  align-self: flex-end;
-} */
-
 /* Styling for the main Post container */
-.post {
+.posts {
     /* Container setup */
     max-width: 400px;
     margin: 20px auto;
@@ -35,7 +20,7 @@
 
 /* Styling for the container holding all the post details */
 /* This is usually just to ensure the content takes full width */
-.post > div {
+.posts > div {
     width: 100%;
     /* Flex-grow allows the post-info area to take up available space, 
        pushing the post-interactions down */
@@ -85,4 +70,9 @@
     margin-left: 5px;
     cursor: pointer;
     color: #4A90E2; 
+}
+
+footer {
+  display: flex;
+  flex-wrap: nowrap;
 }

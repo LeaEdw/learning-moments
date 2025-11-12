@@ -27,7 +27,7 @@ export const Post = ({post}) => {
     }, [topic, post]);
 
     return (
-        <div className="post">
+        <div className="posts">
             <div>
                 <div className="post-info">
                     <div>{post.title}</div>
