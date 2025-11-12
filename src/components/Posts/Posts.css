@@ -1,10 +1,88 @@
-.post {
+/* .post {
   background-color: var(--white);
   border: 1px solid var(--outline);
   border-radius: 0.5rem;
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
 }
 
-/* .post-info {
-
+.post-interactions {
+  display: flex;
+  justify-content: center;
+  align-self: flex-end;
 } */
+
+/* Styling for the main Post container */
+.post {
+    /* Container setup */
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    
+    /* 1. Set the height so the "bottom" is defined */
+    height: 180px; /* Example height: adjust this value as needed */
+    
+    /* 2. Use flexbox to stack and justify items */
+    display: flex;
+    flex-direction: column; /* Stacks items vertically */
+    align-items: center; /* Centers content horizontally within the post box */
+}
+
+/* Styling for the container holding all the post details */
+/* This is usually just to ensure the content takes full width */
+.post > div {
+    width: 100%;
+    /* Flex-grow allows the post-info area to take up available space, 
+       pushing the post-interactions down */
+    flex-grow: 1; 
+    display: flex; /* Added flex to the inner div to control its contents */
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Styling for the row containing title and topic */
+.post-info {
+    /* Since the title/topic are at the top, they don't need special alignment here. */
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
+    gap: 10px;
+    width: 100%;
+}
+
+/* Specific styling for the interactions area (the "footnote") */
+.post-interactions {
+    /* 3. The key change: auto margin pushes the element to the bottom/end */
+    margin-top: auto; 
+    padding-top: 10px;
+    padding-bottom: 5px; /* Add some padding to the bottom */
+    border-top: 1px solid #eee;
+    width: 100%; 
+    text-align: center; /* Centers the content (likes/icon) */
+    font-size: 1.1em;
+    color: #555;
+}
+
+/* Basic styling for the title and topic */
+.post-info > div:first-child {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.topic {
+    font-style: italic;
+    color: #888;
+}
+
+/* Styling for the like icon */
+.fa-thumbs-up {
+    margin-left: 5px;
+    cursor: pointer;
+    color: #4A90E2; 
+}

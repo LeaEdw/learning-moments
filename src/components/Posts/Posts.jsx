@@ -32,12 +32,10 @@ export const Post = ({post}) => {
                 <div className="post-info">
                     <div>{post.title}</div>
                     <div className="topic"></div>
-                    <div>{post.likes}<span><i className="fa-regular fa-thumbs-up"></i></span></div>
+                    <div className="post-interactions">{post.likes}<span><i className="fa-regular fa-thumbs-up"></i></span></div>
                 </div>
             </div>
 
         </div>
     )
 }
-
-// Find out why post is undefined in the next session ...
