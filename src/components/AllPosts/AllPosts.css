@@ -20,6 +20,13 @@
   margin: auto;
 }
 
+.search-bar {
+  display: flex;
+  justify-content: center;
+  margin: 2rem;
+  height: 20px;
+}
+
 input {
   width: 75%;
   display: flex;
