@@ -87,6 +87,7 @@
     'space-between' pushes the first item to the start and the last item to the end.
   */
   justify-content: space-between; 
+  align-items: center;
   /* align-content is not needed here */
   width: 100%; /* Important: Ensure the footer spans the full width of the parent */
 }
