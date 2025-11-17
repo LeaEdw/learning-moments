@@ -1,16 +1,16 @@
 /* Styling for the main Post container */
-.posts {
+.post {
     /* Container setup */
     max-width: 400px;
     margin: 20px auto;
-    padding: 15px;
+    padding: 20px 20px;
     border: 1px solid #ccc;
     border-radius: 8px;
     background-color: #f9f9f9;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     
     /* 1. Set the height so the "bottom" is defined */
-    height: 180px; /* Example height: adjust this value as needed */
+    height: fit-content; /* Example height: adjust this value as needed */
     
     /* 2. Use flexbox to stack and justify items */
     display: flex;
@@ -20,7 +20,7 @@
 
 /* Styling for the container holding all the post details */
 /* This is usually just to ensure the content takes full width */
-.posts > div {
+.post > div {
     width: 100%;
     /* Flex-grow allows the post-info area to take up available space, 
        pushing the post-interactions down */
@@ -54,6 +54,13 @@
     color: #555;
 }
 
+.post-title {
+   font-family: Nunito;
+   font-size: larger;
+   text-align: center;
+   padding-bottom: 1rem;
+}
+
 /* Basic styling for the title and topic */
 .post-info > div:first-child {
     font-weight: bold;
@@ -72,7 +79,15 @@
     color: #4A90E2; 
 }
 
-footer {
+.post-footer {
   display: flex;
-  flex-wrap: nowrap;
+  flex-direction: row;
+  padding-top: 20px;
+  /* FIX: Use justify-content to space items along the main axis (row).
+    'space-between' pushes the first item to the start and the last item to the end.
+  */
+  justify-content: space-between; 
+  /* align-content is not needed here */
+  width: 100%; /* Important: Ensure the footer spans the full width of the parent */
 }
+

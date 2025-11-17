@@ -89,3 +89,8 @@ fieldset {
 input[type="number"] {
   appearance: textfield;
 }
+
+section {
+  display: flex;
+  justify-content: center;
+}

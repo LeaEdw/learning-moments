@@ -7,7 +7,7 @@ import { NewPost } from "../components/New Post/NewPost";
 import { Favorites } from "../components/Faves/Faves";
 import { Settings } from "../components/Profile/Settings";
 import { MyProfile } from "../components/Profile/Profiles";
-import { PostDetails } from "../components/Posts/PostDetails";
+import { PostDetails } from "../components/AllPosts/PostDetails";
 
 export const ApplicationViews = () => {
   const [currentUser, setCurrentUser] = useState({});
@@ -33,7 +33,7 @@ export const ApplicationViews = () => {
         >
           <Route>
             <Route index element={<AllPosts />} />
-            <Route path=":id" element={<PostDetails />} />
+            <Route path="/posts/:postId" element={<PostDetails />} />
           </Route>
 
           <Route path="/my-posts" element={<MyPosts />} />

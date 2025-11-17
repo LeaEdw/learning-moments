@@ -1,5 +1,5 @@
 // Imports
-import { Post } from "../Posts/Posts";
+import { Post } from "./Posts";
 import { useEffect, useState } from "react";
 import { getAllPosts } from "../../services/postsFetcher";
 import { getAllTopics } from "../../services/topicsFetcher";
@@ -22,6 +22,7 @@ export const AllPosts = () => {
 
         //Set the current state with the awaited data
         setAllPosts(postArray);
+        setFilteredPosts(postArray)
       } catch (error) {
         console.error("Failed to fetch all posts.", error);
       }
@@ -70,8 +71,8 @@ export const AllPosts = () => {
       <div className="allPosts">
         {filteredPosts.map((postObject) => {
           return (
-            <Link to={`/${postObject.id}`} key={postObject.id}>
-              <Post key={postObject.id} post={postObject} />
+            <Link to={`/posts/${postObject.id}`} key={postObject.id}>
+              <Post post={postObject} />
             </Link>
           );
         })}
@@ -80,5 +81,3 @@ export const AllPosts = () => {
   );
 };
 
-// Next session! : Figure out how to properly connect the postId in order to pull up the clicked
-// on post details instead of the first one in the array...
