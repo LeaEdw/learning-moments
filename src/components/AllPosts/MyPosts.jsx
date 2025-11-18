@@ -59,7 +59,7 @@ export const MyPosts = ({ currentUser }) => {
                 className="my-posts"
               />
               <div className="btn-container">
-                <button className="edit-btn">
+                <button className="edit-my-post-btn">
                   {" "}
                   <i className="fa-solid fa-pen-to-square"></i>
                 </button>

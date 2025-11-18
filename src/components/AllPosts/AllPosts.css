@@ -66,20 +66,14 @@ h1 {
   gap: 8px;
   flex-shrink: 0;
 }
-.edit-btn,
-.btn-warning {
-  padding: 8px;
-  cursor: pointer;
-  border: none;
-  border-radius: 100%;
-}
 
-.edit-btn {
+
+.edit-my-post-btn {
   background-color: #007bff;
   color: white;
 }
 
-.edit-btn:hover {
+.edit-my-post-btn:hover {
   background-color: #0065d1;
 }
 
