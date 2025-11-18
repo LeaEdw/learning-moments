@@ -38,7 +38,6 @@ const isAuthor = post.userId === loggedInUser;
   const handleEditClick = () => {
     navigate(`/posts/edit/${post.id}`);
   };
-console.log(loggedInUser)
   return (
     <div className="post">
       <h1 className="post-title">{post.title}</h1>

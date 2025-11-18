@@ -2,11 +2,14 @@ import { TopicsDropdown } from "../Topics/TopicsDropdown";
 import "./AllPosts.css";
 
 export const FilterBar = ({ setSelectedTopicId, setSearchTerm }) => {
+  const handleSearch = (e) => {
+    setSearchTerm(e.target.value);
+  };
   return (
     <div className="filter-bar">
       <div className="search-bar">
         <input
-          onChange={(event) => setSearchTerm(event.target.value)}
+          onChange={handleSearch}
           type="text"
           placeholder="Search"
           className="post-search"

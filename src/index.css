@@ -23,7 +23,6 @@ span,
 applet,
 object,
 iframe,
-h1,
 h2,
 h3,
 h4,
@@ -96,12 +95,11 @@ time,
 mark,
 audio,
 video {
-  margin: 0;
-  padding: 0;
-  border: 0;
+  margin: 20;
+  padding: 20;
+  border: 20;
   font-size: 100%;
   font: inherit;
-  vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
 article,
@@ -153,7 +151,7 @@ textarea {
 
 body {
   background-color: var(--appBackground);
-  margin: 0;
+  margin: auto;
 }
 
 h1,
@@ -221,5 +219,7 @@ button {
 .btn-info:hover {
   background-color: #71a500;
 }
+
+
 
 

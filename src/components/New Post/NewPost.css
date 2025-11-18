@@ -1,0 +1,40 @@
+h1 {
+  margin: auto;
+  padding: 1rem;
+}
+
+textarea {
+  width: 75%;
+}
+
+.new-post-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+fieldset {
+  /* Sets the width to 75% */
+  width: 75%;
+  /* 🌟 FIX: This centers the container itself horizontally on the page */
+  margin: 0 auto;
+}
+
+.post-form-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 2rem;
+  align-items: center;
+  /* Sets the width to 75% */
+  width: 100%;
+  /* 🌟 FIX: This centers the container itself horizontally on the page */
+  margin: 0 auto;
+}
+
+.new-post {
+  padding: 15px;
+  margin: 20px;
+  width: 100%;
+}

@@ -1,7 +1,8 @@
 import { getAllTopics } from "../../services/topicsFetcher";
 import { useEffect, useState } from "react";
+import "./TopicsDropdown.css"
 
-export const TopicsDropdown = ({setSelectedTopicId}) => {
+export const TopicsDropdown = ({setSelectedTopicId, onChange, name}) => {
   const [topic, setTopic] = useState([]);
 
   useEffect(() => {
@@ -17,17 +18,22 @@ export const TopicsDropdown = ({setSelectedTopicId}) => {
   }, []);
 
   const handleTopicChange = (event) => {
-    // The event.target.value holds the ID from the selected <option>
     const topicId = parseInt(event.target.value);
-    // Set the state in the parent AllPosts component
-    setSelectedTopicId(topicId);
-  };
+
+    if(setSelectedTopicId) {
+      setSelectedTopicId(topicId);
+    } else if (onChange) {
+      onChange(event);
+    }
+  }
+
 
   return (
     <div>
       <select
-        id="topics-dropdown"
-        onClick={handleTopicChange}
+        className="topics-dropdown"
+        onChange={handleTopicChange}
+        name={name}
         defaultValue={0}
       >
         {topic.map((topicObject) => {
