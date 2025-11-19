@@ -7,12 +7,12 @@ textarea {
   width: 75%;
 }
 
-.new-post-container {
+/* .new-post-container {
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-}
+} */
 
 fieldset {
   /* Sets the width to 75% */

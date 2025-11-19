@@ -31,7 +31,7 @@ export const Post = ({ post }) => {
       <div>
         <div className="post-info">
           <div>{post.title}</div>
-          <div className="topic"></div>
+          <div className="topic">{assignedTopic ? assignedTopic.name : "Loading Topic"}</div>
           <footer className="post-footer">
             <div className="post-author">{post.author}</div>
             <div className="post-like-count">

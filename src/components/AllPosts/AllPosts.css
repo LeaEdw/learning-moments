@@ -3,7 +3,9 @@
   grid-template-columns: 1fr 1fr 1fr;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
+  position: relative;
+
 }
 
 .allPosts > * {
@@ -38,4 +40,53 @@ input {
 
 select {
   height: 3rem;
+}
+
+h1 {
+  text-align: center;
+}
+
+.each_post {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  margin: 20px;
+  box-sizing: border-box;
+}
+
+.my-posts {
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  padding: 10px;
+  margin: 15px;
+}
+
+.each_post .my-posts {
+  flex-grow: 1;
+  margin-right: 15px;
+}
+
+.btn-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-shrink: 0;
+  margin: 10px;
+}
+
+
+.edit-my-post-btn {
+  background-color: #007bff;
+  color: white;
+}
+
+.edit-my-post-btn:hover {
+  background-color: #0065d1;
+}
+
+.btn-warning {
+  background-color: #dc3545;
+  color: white;
 }
