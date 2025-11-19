@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { SettingsDropdown } from "./SettingsDropdown";
 
 export const NavigationBar = () => {
-  const navigate = useNavigate();
   return (
     <ul className="navbar">
       <li className="nav-item">

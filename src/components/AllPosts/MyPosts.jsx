@@ -1,49 +1,56 @@
 import "./AllPosts.css";
-import { getAllPosts } from "../../services/postsFetcher";
+import { getAllPosts, postDeleter } from "../../services/postsFetcher";
 import { Post } from "./Posts";
 import { useState, useEffect } from "react";
 import { getAllTopics } from "../../services/topicsFetcher";
+import { Link } from "react-router-dom";
 
 export const MyPosts = ({ currentUser }) => {
-  const [allPosts, setAllPosts] = useState([]);
   const [myPosts, setMyPosts] = useState([]);
   const [topics, setTopics] = useState([]);
 
-  useEffect(() => {
-    const fetchAllData = async () => {
-      try {
-        const postArray = await getAllPosts();
-        setAllPosts(postArray);
+  const getMyPosts = (all) => {
+    let authorId = null;
+    const learningUser = localStorage.getItem("learning_user");
 
-        const topicsArray = await getAllTopics();
-        setTopics(topicsArray);
-      } catch (error) {
-        console.error("Failed to fetch data", error);
-      }
-    };
-    fetchAllData();
+    if (learningUser) {
+      const userObject = JSON.parse(learningUser);
+      authorId = userObject.id;
+    }
+
+    if (authorId) {
+      const filteredPosts = all.filter((post) => post.userId === authorId);
+      setMyPosts(filteredPosts);
+    } else {
+      setMyPosts([]);
+    }
+  };
+
+  const fetchAndSetPosts = async () => {
+    try {
+      const postArray = await getAllPosts();
+      getMyPosts(postArray);
+
+      const topicsArray = await getAllTopics();
+      setTopics(topicsArray);
+    } catch (error) {
+      console.error("Failed to fetch data.", error);
+    }
+  };
+  useEffect(() => {
+    fetchAndSetPosts();
   }, []);
 
-  useEffect(() => {
-    if (allPosts.length > 0) {
-      let authorId = null;
+  const postToDelete = async (postId) => {
+    try {
+      await postDeleter(postId);
 
-      const learningUser = localStorage.getItem("learning_user");
+      await fetchAndSetPosts();
 
-      if (learningUser) {
-        const userObject = JSON.parse(learningUser);
-        authorId = userObject.id;
-      }
-      if (authorId) {
-        const filteredPosts = allPosts.filter(
-          (post) => post.userId === authorId
-        );
-        setMyPosts(filteredPosts);
-      } else {
-        setMyPosts([]);
-      }
+    } catch (error) {
+      console.error("Failed to delete post.", error);
     }
-  }, [allPosts]);
+  };
 
   return (
     <div>
@@ -52,18 +59,19 @@ export const MyPosts = ({ currentUser }) => {
         {myPosts.map((post) => {
           return (
             <div className="each_post" key={post.id}>
-              <Post
-               
-                post={post}
-                topics={topics}
-                className="my-posts"
-              />
+              <Link to={`/posts/${post.id}`} key={post.id}>
+                <Post post={post} topics={topics} className="my-posts" />
+              </Link>
+
               <div className="btn-container">
                 <button className="edit-my-post-btn">
                   {" "}
                   <i className="fa-solid fa-pen-to-square"></i>
                 </button>
-                <button className="btn-warning">
+                <button
+                  className="btn-warning"
+                  onClick={() => postToDelete(post.id)}
+                >
                   <i className="fa-regular fa-circle-xmark"></i>
                 </button>
               </div>

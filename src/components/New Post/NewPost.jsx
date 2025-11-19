@@ -5,6 +5,7 @@ import { createPost } from "../../services/postsFetcher";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getUserById } from "../../services/userService";
+import { Navigate } from "react-router-dom";
 
 export const NewPost = () => {
   const [post, setPost] = useState({
@@ -19,31 +20,31 @@ export const NewPost = () => {
 
   const navigate = useNavigate();
 
-useEffect(() => {
+  useEffect(() => {
     const learningUser = localStorage.getItem("learning_user");
 
     if (learningUser) {
-        const userObject = JSON.parse(learningUser);
-        const authorId = userObject.id;
-        
-        const fetchAuthorDetails = async () => {
-            try {
-                const user = await getUserById(authorId);
+      const userObject = JSON.parse(learningUser);
+      const authorId = userObject.id;
 
-                if (user) {
-                    setPost((prevPost) => ({
-                        ...prevPost,
-                        userId: user.id,
-                        author: user.username
-                    }));
-                }
-            } catch (error){
-                console.error("Failed to fetch author details", error)
-            }
-        };
-        fetchAuthorDetails();
+      const fetchAuthorDetails = async () => {
+        try {
+          const user = await getUserById(authorId);
+
+          if (user) {
+            setPost((prevPost) => ({
+              ...prevPost,
+              userId: user.id,
+              author: user.username,
+            }));
+          }
+        } catch (error) {
+          console.error("Failed to fetch author details", error);
+        }
+      };
+      fetchAuthorDetails();
     }
-}, [])
+  }, []);
 
   const handleNewPostInput = (e) => {
     const { name, value } = e.target;
@@ -66,13 +67,13 @@ useEffect(() => {
     const newPost = {
       ...post,
       date: new Date().toISOString(),
-      
     };
     createPost(newPost).then(() => {
-      navigate("/");
+      navigate("/my-posts");
     });
   };
 
+ 
   return (
     <div className="new-post-container">
       <h1>Create a new Post</h1>
@@ -101,13 +102,12 @@ useEffect(() => {
         <div>Select the topic:</div>
         <TopicsDropdown name="topicId" onChange={handleNewPostInput} />
         <div className="edit-btn">
-          <button className="btn-info" onClick={createNewPost}>
-            Save Post
-          </button>
+            <button className="btn-info" onClick={createNewPost}>
+              Save Post
+            </button>
         </div>
       </div>
     </div>
   );
 };
 
-// Create a function to handle saving the information from the form to the database.

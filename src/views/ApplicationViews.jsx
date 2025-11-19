@@ -37,7 +37,9 @@ export const ApplicationViews = () => {
           </Route>
 
           <Route path="/my-posts" element={<MyPosts />} />
+
           <Route path="/new-post" element={<NewPost />} />
+
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="/profile" element={<MyProfile />} />
